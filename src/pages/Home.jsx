@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useRef, useState } from "react";
-import { Island } from "../models/Island";
+import Tokyo  from "../models/Tokyo";
 import Loader from "../components/Loader";
 import Sky from "../models/Sky";
 import Plane from "../models/Plane";
@@ -12,7 +12,7 @@ const Home = () => {
   const [currentStage, setCurrentStage] = useState(1);
   const [isRotating, setIsRotating] = useState(false);
 
-  const adjustIslandForScreenSize = () => {
+  const adjustTokyoForScreenSize = () => {
     let screenScale, screenPosition;
 
     if (window.innerWidth < 768) {
@@ -25,7 +25,7 @@ const Home = () => {
 
     return [screenScale, screenPosition];
   };
-  const [islandScale, islandPosition] = adjustIslandForScreenSize();
+  const [tokyoScale, tokyoPosition] = adjustTokyoForScreenSize();
 
   const adjustPlaneForScreenSize = () => {
     let screenScale, screenPosition;
@@ -71,13 +71,13 @@ const Home = () => {
           <Sky 
           isRotating={isRotating}
           />
-          <Island
+          <Tokyo
             isRotating={isRotating}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
-            position={islandPosition}
+            position={tokyoPosition}
             rotation={[0.1, 4.7077, 0]}
-            scale={islandScale}
+            scale={tokyoScale}
           />
           <Plane 
           scale ={planeScale}
