@@ -12,7 +12,7 @@ export function Tokyo({
   currentFocusPoint,
   ...props
 }) {
-  const group = useRef();
+  const tokyoRef = useRef();
   // Get access to the Three.js renderer and viewport
   const { gl, viewport } = useThree();
   const { nodes, materials } = useGLTF(tokyoScene);
@@ -48,6 +48,7 @@ export function Tokyo({
   const handlePointerMove = (event) => {
     event.stopPropagation();
     event.preventDefault();
+
     if (isRotating) {
       // If rotation is enabled, calculate the change in clientX position
       const clientX = event.touches ? event.touches[0].clientX : event.clientX;
@@ -72,7 +73,7 @@ export function Tokyo({
     if (event.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
       tokyoRef.current.rotation.y += 0.01 * Math.PI;
-      rotationSpeed.current = 0.0125;
+      // rotationSpeed.current = 0.0125;
     } else if (event.key === "ArrowRight") {
       if (!isRotating) setIsRotating(true);
 
@@ -147,9 +148,8 @@ export function Tokyo({
     }
   });
 
-  return (
-    
-    <a.group ref={group} {...props}>
+  return (  
+    <a.group ref={tokyoRef} {...props}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="4cd116fc63ca40809810ca0842dc78edfbx" rotation={[Math.PI / 2, 0, 0]}>
@@ -249,8 +249,8 @@ export function Tokyo({
                     <group name="Object_53" position={[-97.409, -7.128, -96.27]}>
                       <mesh
                         name="Object078_Plastic_Soft_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Object078_Plastic_Soft_0.geometry}
                         material={materials.Plastic_Soft}
                       />
@@ -263,8 +263,8 @@ export function Tokyo({
                     <group name="Object_56" position={[0, -0.254, 1.817]}>
                       <mesh
                         name="body_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.body_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -273,8 +273,8 @@ export function Tokyo({
                       <group name="Object_59" position={[0.015, -1.561, -6.223]}>
                         <mesh
                           name="leaf_normal_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.leaf_normal_0.geometry}
                           material={materials.normal}
                         />
@@ -287,8 +287,8 @@ export function Tokyo({
                       <group name="Object_62" position={[-2.127, 0.48, -3.246]}>
                         <mesh
                           name="hand2_normal_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.hand2_normal_0.geometry}
                           material={materials.normal}
                         />
@@ -301,8 +301,8 @@ export function Tokyo({
                       <group name="Object_65" position={[2.169, 0.48, -3.267]}>
                         <mesh
                           name="hand1_normal_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.hand1_normal_0.geometry}
                           material={materials.normal}
                         />
@@ -312,8 +312,8 @@ export function Tokyo({
                       <group name="Object_68" position={[-2.428, 0.669, -0.203]}>
                         <mesh
                           name="foot2_normal_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.foot2_normal_0.geometry}
                           material={materials.normal}
                         />
@@ -323,8 +323,8 @@ export function Tokyo({
                       <group name="Object_71" position={[2.491, 0.669, -0.161]}>
                         <mesh
                           name="foot1_normal_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.foot1_normal_0.geometry}
                           material={materials.normal}
                         />
@@ -345,15 +345,15 @@ export function Tokyo({
                     <group name="Object_75" position={[-55.32, -73.646, -80.314]}>
                       <mesh
                         name="Object608_metalmat_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Object608_metalmat_0.geometry}
                         material={materials.metalmat}
                       />
                       <mesh
                         name="Object608_paintmat_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Object608_paintmat_0.geometry}
                         material={materials.paintmat}
                       />
@@ -365,78 +365,78 @@ export function Tokyo({
                     rotation={[-Math.PI / 2, 0, 0]}>
                     <mesh
                       name="Object649_normal_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes.Object649_normal_0.geometry}
                       material={materials.normal}
                     />
                     <mesh
                       name="Object649_paintmat_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes.Object649_paintmat_0.geometry}
                       material={materials.paintmat}
                     />
                     <mesh
                       name="Object649_metalmat_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes.Object649_metalmat_0.geometry}
                       material={materials.metalmat}
                     />
                     <mesh
                       name="Object649_Plastic_Soft_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes.Object649_Plastic_Soft_0.geometry}
                       material={materials.Plastic_Soft}
                     />
                     <mesh
                       name="Object649_alpha_glass_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes.Object649_alpha_glass_0.geometry}
                       material={materials.alpha_glass}
                     />
                     <mesh
                       name="Object649_glassmat_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes.Object649_glassmat_0.geometry}
                       material={materials.glassmat}
                     />
                     <mesh
                       name="Object649_Material_#5511_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes['Object649_Material_#5511_0'].geometry}
                       material={materials.Material_5511}
                     />
                     <mesh
                       name="Object649_Material_#5512_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes['Object649_Material_#5512_0'].geometry}
                       material={materials.Material_5512}
                     />
                     <mesh
                       name="Object649_glass_transp_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes.Object649_glass_transp_0.geometry}
                       material={materials.glass_transp}
                     />
                     <mesh
                       name="Object649_interiors_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes.Object649_interiors_0.geometry}
                       material={materials.interiors}
                     />
                     <mesh
                       name="Object649_alpha_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes.Object649_alpha_0.geometry}
                       material={materials.alpha}
                     />
@@ -448,8 +448,8 @@ export function Tokyo({
                     <group name="Object_91" position={[-138.488, 205.266, 96.473]}>
                       <mesh
                         name="wire7_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.wire7_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -461,15 +461,15 @@ export function Tokyo({
                     rotation={[-Math.PI / 2, 0, 0]}>
                     <mesh
                       name="Object674_outline_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes.Object674_outline_0.geometry}
                       material={materials.outline}
                     />
                     <mesh
                       name="Object674_outline_0_1"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes.Object674_outline_0_1.geometry}
                       material={materials.outline}
                     />
@@ -481,29 +481,29 @@ export function Tokyo({
                     <group name="Object_97" position={[0, 0, 76.43]}>
                       <mesh
                         name="Object675_metalmat_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Object675_metalmat_0.geometry}
                         material={materials.metalmat}
                       />
                       <mesh
                         name="Object675_paintmat_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Object675_paintmat_0.geometry}
                         material={materials.paintmat}
                       />
                       <mesh
                         name="Object675_glassmat_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Object675_glassmat_0.geometry}
                         material={materials.glassmat}
                       />
                       <mesh
                         name="Object675_outline_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Object675_outline_0.geometry}
                         material={materials.outline}
                       />
@@ -512,8 +512,8 @@ export function Tokyo({
                       <group name="Object_103" position={[12.887, 0, 68.079]}>
                         <mesh
                           name="Object680_metalmat_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.Object680_metalmat_0.geometry}
                           material={materials.metalmat}
                         />
@@ -523,8 +523,8 @@ export function Tokyo({
                       <group name="Object_106" position={[12.887, 0, 68.079]}>
                         <mesh
                           name="Object681_metalmat_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.Object681_metalmat_0.geometry}
                           material={materials.metalmat}
                         />
@@ -542,8 +542,8 @@ export function Tokyo({
                       rotation={[0, 0, 0.698]}>
                       <mesh
                         name="Object532_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Object532_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -557,8 +557,8 @@ export function Tokyo({
                     <group name="Object_112" position={[-63.347, -47.947, -30.882]}>
                       <mesh
                         name="Object531_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Object531_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -571,8 +571,8 @@ export function Tokyo({
                     <group name="Object_115" rotation={[0, 0, 0.698]}>
                       <mesh
                         name="Object689_metalmat_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Object689_metalmat_0.geometry}
                         material={materials.metalmat}
                       />
@@ -585,8 +585,8 @@ export function Tokyo({
                     <group name="Object_118" position={[-0.965, -3.606, -2.09]}>
                       <mesh
                         name="Plane001_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Plane001_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -600,8 +600,8 @@ export function Tokyo({
                     <group name="Object_121" position={[-0.965, -3.606, -2.09]}>
                       <mesh
                         name="Plane003_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Plane003_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -619,8 +619,8 @@ export function Tokyo({
                     <group name="Object_125" position={[-0.965, -3.606, -2.09]}>
                       <mesh
                         name="Plane104_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Plane104_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -634,8 +634,8 @@ export function Tokyo({
                     <group name="Object_128" position={[-0.965, -3.606, -2.09]}>
                       <mesh
                         name="Plane103_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Plane103_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -653,8 +653,8 @@ export function Tokyo({
                     <group name="Object_132" position={[-0.965, -3.606, -2.09]}>
                       <mesh
                         name="Plane105_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Plane105_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -673,8 +673,8 @@ export function Tokyo({
                     <group name="Object_136" position={[-0.965, -3.606, -2.09]}>
                       <mesh
                         name="Plane106_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Plane106_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -687,8 +687,8 @@ export function Tokyo({
                     <group name="Object_139" position={[-0.965, -3.606, -2.09]}>
                       <mesh
                         name="Plane108_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Plane108_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -707,8 +707,8 @@ export function Tokyo({
                     <group name="Object_143" position={[-0.965, -3.606, -2.09]}>
                       <mesh
                         name="Plane107_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Plane107_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -726,8 +726,8 @@ export function Tokyo({
                     <group name="Object_147" position={[-0.965, -3.606, -2.09]}>
                       <mesh
                         name="Plane109_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Plane109_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -741,8 +741,8 @@ export function Tokyo({
                     <group name="Object_150" position={[-0.965, -3.606, -2.09]}>
                       <mesh
                         name="Plane110_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Plane110_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -756,8 +756,8 @@ export function Tokyo({
                     <group name="Object_153" position={[-0.965, -3.606, -2.09]}>
                       <mesh
                         name="Plane111_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Plane111_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -770,8 +770,8 @@ export function Tokyo({
                     <group name="Object_156" position={[-0.965, -3.606, -2.09]}>
                       <mesh
                         name="Plane112_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Plane112_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -789,15 +789,15 @@ export function Tokyo({
                     <group name="Object_160" position={[49.835, -98.15, 42.104]}>
                       <mesh
                         name="Object704_Plastic_Soft_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Object704_Plastic_Soft_0.geometry}
                         material={materials.Plastic_Soft}
                       />
                       <mesh
                         name="Object704_metalmat_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.Object704_metalmat_0.geometry}
                         material={materials.metalmat}
                       />
@@ -813,8 +813,8 @@ export function Tokyo({
                       rotation={[0.189, 0, -0.143]}>
                       <mesh
                         name="wire1_Plastic_Soft_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.wire1_Plastic_Soft_0.geometry}
                         material={materials.Plastic_Soft}
                       />
@@ -830,8 +830,8 @@ export function Tokyo({
                       rotation={[0, 0, 0.802]}>
                       <mesh
                         name="wire2_Plastic_Soft_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.wire2_Plastic_Soft_0.geometry}
                         material={materials.Plastic_Soft}
                       />
@@ -847,8 +847,8 @@ export function Tokyo({
                         rotation={[0, 0, -0.519]}>
                         <mesh
                           name="Object081_normal_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.Object081_normal_0.geometry}
                           material={materials.normal}
                         />
@@ -862,8 +862,8 @@ export function Tokyo({
                       <group name="Object_173" position={[-78.668, -54.735, -19.124]}>
                         <mesh
                           name="Object332_normal_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.Object332_normal_0.geometry}
                           material={materials.normal}
                         />
@@ -877,8 +877,8 @@ export function Tokyo({
                       <group name="Object_176" position={[-78.668, -54.735, -19.124]}>
                         <mesh
                           name="Object682_normal_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.Object682_normal_0.geometry}
                           material={materials.normal}
                         />
@@ -895,8 +895,8 @@ export function Tokyo({
                       rotation={[0, 0, -0.069]}>
                       <mesh
                         name="wire3_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.wire3_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -912,8 +912,8 @@ export function Tokyo({
                       rotation={[0, 0, 0.165]}>
                       <mesh
                         name="wire4_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.wire4_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -929,8 +929,8 @@ export function Tokyo({
                       rotation={[0, 0, -0.284]}>
                       <mesh
                         name="wire5_normal_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes.wire5_normal_0.geometry}
                         material={materials.normal}
                       />
@@ -942,8 +942,8 @@ export function Tokyo({
                     rotation={[-Math.PI / 2, 0, 0]}>
                     <mesh
                       name="Object705_Material_#5516_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes['Object705_Material_#5516_0'].geometry}
                       material={materials.Material_5516}
                     />
@@ -960,8 +960,8 @@ export function Tokyo({
                       <group name="Object_191" position={[0.668, 3.969, 17.987]}>
                         <mesh
                           name="Object619_alpha_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.Object619_alpha_0.geometry}
                           material={materials.alpha_0}
                         />
@@ -975,8 +975,8 @@ export function Tokyo({
                       <group name="Object_194" position={[0.668, 3.969, 17.987]}>
                         <mesh
                           name="Object620_alpha_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.Object620_alpha_0.geometry}
                           material={materials.alpha_0}
                         />
@@ -990,8 +990,8 @@ export function Tokyo({
                       <group name="Object_197" position={[0.668, 3.969, 17.987]}>
                         <mesh
                           name="Object621_alpha_0"
-                          castShadow
-                          receiveShadow
+                          
+                          
                           geometry={nodes.Object621_alpha_0.geometry}
                           material={materials.alpha_0}
                         />
@@ -1004,8 +1004,8 @@ export function Tokyo({
                     rotation={[-Math.PI / 2, 0, 0]}>
                     <mesh
                       name="Object622_alpha_0"
-                      castShadow
-                      receiveShadow
+                      
+                      
                       geometry={nodes.Object622_alpha_0.geometry}
                       material={materials.alpha_0}
                     />
@@ -1017,8 +1017,8 @@ export function Tokyo({
                     <group name="Object_202" position={[-111.42, 210.54, 169.876]}>
                       <mesh
                         name="Object706_Material_#5518_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes['Object706_Material_#5518_0'].geometry}
                         material={materials.Material_5518}
                       />
@@ -1031,8 +1031,8 @@ export function Tokyo({
                     <group name="Object_205" position={[-111.42, 210.54, 168.544]}>
                       <mesh
                         name="Object707_Material_#5518_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes['Object707_Material_#5518_0'].geometry}
                         material={materials.Material_5518}
                       />
@@ -1045,8 +1045,8 @@ export function Tokyo({
                     <group name="Object_208" position={[-111.42, 210.54, 169.876]}>
                       <mesh
                         name="Object708_Material_#5518_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes['Object708_Material_#5518_0'].geometry}
                         material={materials.Material_5518}
                       />
@@ -1059,8 +1059,8 @@ export function Tokyo({
                     <group name="Object_211" position={[-111.42, 210.54, 168.544]}>
                       <mesh
                         name="Object709_Material_#5518_0"
-                        castShadow
-                        receiveShadow
+                        
+                        
                         geometry={nodes['Object709_Material_#5518_0'].geometry}
                         material={materials.Material_5518}
                       />
@@ -1075,3 +1075,5 @@ export function Tokyo({
     </a.group>
   );
 }
+
+export default Tokyo;
